@@ -1,0 +1,8 @@
+Enter half the no. of lines : 
+  *                        *  
+  *    *              *    *  
+  *    *    *    *    *    *  
+  *    *    *    *    *    *  
+  *    *              *    *  
+  *                        *  
+

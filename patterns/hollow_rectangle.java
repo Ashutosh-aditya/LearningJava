@@ -20,5 +20,6 @@ public class hollow_rectangle
             }
             System.out.println();
         }
+        sc.close();
     }
 }

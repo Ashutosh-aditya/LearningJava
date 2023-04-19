@@ -17,6 +17,6 @@ class pyramind2
             }
             System.out.println();
         }
+        sc.close();
     }
-    
 }

@@ -19,6 +19,6 @@ class pyramind3
             System.out.println();
             b--;
         }
+        sc.close();
     }
-    
 }

@@ -9,7 +9,7 @@ public class dec_to_bin {
         while(num>0)
         {
             int d=num%2;
-            res=res*10+d;
+            res=res+d*(int)Math.pow(10,i);
             num=num/2;
             i++;
         }
@@ -20,7 +20,7 @@ public class dec_to_bin {
         try
         {
             Scanner sc=new Scanner(System.in);
-            System.out.println("Enter a num : ");
+            System.out.print("Enter a num : ");
             int n=sc.nextInt();
             dec2bin(n);
             sc.close();

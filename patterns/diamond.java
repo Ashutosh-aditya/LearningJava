@@ -4,7 +4,7 @@ public class diamond {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter no. of lines : ");
         int n = sc.nextInt();
-        int c=n-1,l=0,str=0;
+        int c=n-1,l=0;
         for (int i = 0; i <2*n; i++)
         {
             for( int j = 0; j <(n+i); j++)

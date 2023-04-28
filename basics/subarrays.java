@@ -1,4 +1,4 @@
-import java.util.*;
+
 public class subarrays {
     public static int ts=0,max=Integer.MIN_VALUE,min=Integer.MAX_VALUE;
     public static void pString(int ar[],int start,int end)
@@ -25,6 +25,7 @@ public class subarrays {
                 pString(ar, i, j);
             }
             System.out.println(" ");
+            
         }
         System.out.println("Total subArrays : "+ts);
         System.out.println("Max Sum : "+max+"\nMin Sum : "+min+"\n");

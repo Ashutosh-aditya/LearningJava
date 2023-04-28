@@ -2,7 +2,7 @@ public class kadans_algo {
 
     public static void kadans(int ar[])
     {
-        int ms=Integer.MIN_VALUE,cs=Integer.MIN_VALUE;
+        int ms=Integer.MIN_VALUE,cs=0;
         for(int i=0;i<ar.length;i++)
         {
             cs=cs+ar[i];

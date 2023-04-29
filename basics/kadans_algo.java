@@ -58,7 +58,7 @@ public class kadans_algo {
         int[] t2 = {1, 2, 3, 4, 5};               // expected output: 15 (sum of subarray {1, 2, 3, 4, 5})
         int[] t3 = {-1, -2, -3, -4, -5};          // expected output: -1 (largest element in array)
         int[] t4 = {5, -2, 3, 1, 2};              // expected output: 9 (sum of subarray {5, -2, 3, 1, 2})
-        int[] t5 = {1, -2, 3, -4, 5, -6, 7};      // expected output: 8 (sum of subarray {5, -6, 7})
+        int[] t5 = {1, -2, 3, -4, 5, -6, 7};      // expected output: 7 (sum of subarray {5, -6, 7})
         int[] t6 = {-1,-2,-3,-4,-5,-6};      // expected output: -1 (sum of subarray {-1})
 
         kadans(ar1);

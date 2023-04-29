@@ -68,6 +68,5 @@ public class kadans_algo {
         kadans(t4);
         kadans(t5);
         kadans(t6);
-
     }
 }

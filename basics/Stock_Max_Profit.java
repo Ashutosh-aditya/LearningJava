@@ -1,6 +1,6 @@
 public class Stock_Max_Profit {
 
-    public static int MaxStockProfit(int price[])
+    public static int MaxStockProfit(int price[]) //price can also be treated as selling price
     {
         int profit=0,BuyPrice,CurrentProfit=0;
         // System.out.println(" --> "+price.length);

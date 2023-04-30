@@ -2,13 +2,20 @@ public class Stock_Max_Profit {
 
     public static int MaxStockProfit(int price[])
     {
-        int profit=0,BuyPrice=price[0],CurrentProfit=0;
-        for(int i=1;i<price.length;i++)
+        int profit=0,BuyPrice,CurrentProfit=0;
+        // System.out.println(" --> "+price.length);
+        if(price.length<2)
+            profit=0;
+        else
         {
-            CurrentProfit=price[i]-BuyPrice;
-            if(price[i]<BuyPrice)
-                BuyPrice=price[i];
-            profit=Math.max(CurrentProfit,profit);
+            BuyPrice=price[0];
+            for(int i=1;i<price.length;i++)
+            {
+                CurrentProfit=price[i]-BuyPrice;
+                if(price[i]<BuyPrice)
+                    BuyPrice=price[i];
+                profit=Math.max(CurrentProfit,profit);
+            }
         }
         return profit;
     }
@@ -21,6 +28,7 @@ public class Stock_Max_Profit {
         int[] prices4 = {5, 4, 3, 2, 1};        //0
         int[] prices5 = {1};                    //0
         int[] prices6 = {};                     //0
+        System.out.println("-->"+prices6.length);
         System.out.println("Max Profit : "+MaxStockProfit(price));
         System.out.println("Max Profit : "+MaxStockProfit(prices1));
         System.out.println("Max Profit : "+MaxStockProfit(prices2));

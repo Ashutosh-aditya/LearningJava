@@ -15,6 +15,7 @@ public class inbuilt_Sort {
             System.out.print(ar[i]+" ");
         System.out.println(" ");
     }
+
     public static void main(String[] args) {
         int arr[]={9,8,7,5,6,4,1,3,2};
         printArray(arr);

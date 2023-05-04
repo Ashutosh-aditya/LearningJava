@@ -26,5 +26,6 @@ public class matrix {
             }
         }
         System.out.println("MAX: " + max+" \nmin: " + min);
+        sc.close();
     }
 }

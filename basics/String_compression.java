@@ -7,22 +7,22 @@ public class String_compression {
         {
             count=1;
             while( i<str.length()-1 && str.charAt(i)==str.charAt(i+1)) // first check out of bound condition then check other conditions
+            //while( str.charAt(i)==str.charAt(i+1) && i<str.length()-1) //THIS WILL THROW AN ERROR 
             {
                 count++;
                 i++;
             }
+            sb.append(str.charAt(i));
             if(count>1)
-            {
-                sb.append(str.charAt(i));
                 sb.append(count);
-            }
-            else
-                sb.append(str.charAt(i));
+
         }
         return sb.toString();
     }
     public static void main(String[] args) {
         String cmp="aaabbbbccccc";
+        String cmp1="mississippi";
         System.out.println(compress(cmp));
+        System.out.println(compress(cmp1));
     }
 }

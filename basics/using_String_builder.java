@@ -3,7 +3,7 @@ public class using_String_builder {
         StringBuilder str =new StringBuilder("");
         for(char i='a'; i <='z';i++)
         {
-            str.append(i);
+            str.append(i); 
             str.append(' ');
         } 
         System.out.println("String = "+str);

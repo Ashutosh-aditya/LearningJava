@@ -6,6 +6,6 @@ public class using_String_builder {
             str.append(i); 
             str.append(' ');
         } 
-        System.out.println("String = "+str);
+        System.out.println("String = "+str); 
     }
 }

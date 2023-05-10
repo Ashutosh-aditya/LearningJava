@@ -1,4 +1,3 @@
-
 public class class_inheritance {
     public static void main(String[] args) {
         Fish f1 = new Fish();

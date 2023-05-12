@@ -5,7 +5,7 @@ public class last_Occurance {
             {
                 return -1;
             }
-        int res=lastOccurance(ar, ++i, key);
+        int res=lastOccurance(ar, i+1, key);
         if(res==-1 && ar[i]==key)
             {
                 return i;

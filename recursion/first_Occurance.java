@@ -1,4 +1,4 @@
-public class first_oocurance {
+public class first_Occurance {
 
     public static int firstOccurance(int ar[],int i,int key) {
         if(ar.length==i+1)

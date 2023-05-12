@@ -32,7 +32,7 @@ public class Merge_Sort_code {
             temp[k++] = ar[j++];
         for(i=si,k=0;k<temp.length;k++,i++) //chance of error like for(i=0;i<ei-1;i++)
             {
-                // System.out.println("<"+i+">");
+                //System.out.println("<"+i+">");
                 ar[i]=temp[k];
             }
         // printArray(temp);

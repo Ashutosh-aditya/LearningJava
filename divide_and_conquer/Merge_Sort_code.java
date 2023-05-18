@@ -50,5 +50,6 @@ public class Merge_Sort_code {
         printArray(ar);
         mergeSort(ar, 0, ar.length-1);
         printArray(ar);
+        
     }
 }

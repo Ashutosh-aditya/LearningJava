@@ -16,6 +16,7 @@ public class one {
         System.out.println("y1="+y);
     }
     public static void main(String[] args) {
+        one a=new one();
         System.out.println("y="+y);
     }
 

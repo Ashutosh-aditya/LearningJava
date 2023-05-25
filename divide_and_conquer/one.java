@@ -8,7 +8,6 @@
 //     }
     
 // }
-
 public class one {
     static int y;
     one()

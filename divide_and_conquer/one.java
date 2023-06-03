@@ -15,7 +15,8 @@ public class one {
     {System.out.println("y1="+y);}
         public static void main(String[] args) {
         one a=new one();
-        a.y=10;
+        one.y=10;
+        System.out.println("a="+a);
         System.out.println(one.y); //aceess the static reference check it
         System.out.println("y="+y);
     }

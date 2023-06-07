@@ -10,7 +10,7 @@ public class finding_SubSets {
         subSets(str, ans, i+1);
     }
     public static void main(String[] args) {
-        String str = "123",res="";
+        String str = "abc.",res="";
         subSets(str, res, 0);
     }
 }

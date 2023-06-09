@@ -31,7 +31,7 @@ public class nqueens_basic_placement {
         {
             for(int j=0;j<board.length;j++)
             {
-                System.out.print(" "+'X'+" ");
+                board[i][j]='X';
             }
             System.out.println(" ");
         }

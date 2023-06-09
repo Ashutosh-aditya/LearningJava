@@ -5,11 +5,11 @@ public class nqueens_basic_placement {
             printBoard(board);
             return;
         }
-        for(int i=0;i<board.length;i++)
+        for(int i=0;i<board.length;i++) //this function is used to generate total possible combinations
         {
-            board[row][i]='Q';
-            nQueens(board, row+1);
-            board[row][i]='X'; 
+            board[row][i]='Q'; // (1)fix the first queen 
+            nQueens(board, row+1); //find total possible combinations for the queen seated in (1)
+            board[row][i]='X'; //reset the postion to find total possible combinations for another position of queen
         }
     }
     public static void printBoard(char board[][]) {

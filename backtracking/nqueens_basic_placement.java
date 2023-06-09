@@ -9,7 +9,7 @@ public class nqueens_basic_placement {
         {
             board[row][i]='Q';
             nQueens(board, row+1);
-            //  board[row][i]='.'; 
+            board[row][i]='X'; 
         }
     }
     public static void printBoard(char board[][]) {
@@ -25,8 +25,16 @@ public class nqueens_basic_placement {
         
     }
     public static void main(String[] args) {
-        int n=2;
+        int n=3;
         char board[][] = new char[n][n];
+        for(int i=0;i<board.length;i++)
+        {
+            for(int j=0;j<board.length;j++)
+            {
+                System.out.print(" "+'X'+" ");
+            }
+            System.out.println(" ");
+        }
         nQueens(board, 0);
     }
 }

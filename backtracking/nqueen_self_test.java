@@ -47,7 +47,7 @@ public class nqueen_self_test {
         }
     }
     public static void main(String[] args) {
-        int n=10;
+        int n=6;
         char board[][]=new char[n][n];
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){

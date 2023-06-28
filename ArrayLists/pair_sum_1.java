@@ -14,7 +14,7 @@ public class pair_sum_1 {
     }
 
     public static void main(String[] args) {
-        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1,2,3,4,5,6));
+        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1,2,3,4,5));
         if(pairSum(5,list)){
             System.out.println("Pair Found");
         }

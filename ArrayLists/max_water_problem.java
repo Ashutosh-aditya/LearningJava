@@ -2,6 +2,8 @@ import java.util.*;
 
 public class max_water_problem {
     public static void main(String[] args) {
+        //Solved using 2 pointer approach
+
         // int height[] ={1,8,6,2,5,4,8,3,7};
         ArrayList <Integer> height = new ArrayList<>(Arrays.asList(1,8,6,2,5,4,8,3,7));
         System.out.println(height);

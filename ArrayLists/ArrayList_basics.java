@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class ArrayList_basics {
     public static void main(String[] args) {
         ArrayList<Integer> list1 = new ArrayList<>();

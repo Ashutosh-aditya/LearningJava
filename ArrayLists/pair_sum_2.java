@@ -1,7 +1,6 @@
 import java.util.*;
 //Shifted rotated arraylist
 public class pair_sum_2 {
-
     public static boolean PairSum(ArrayList<Integer>list,Integer target) {
         Integer begin=0,end=list.size()-1,shiftpt;
         for(int i=0;i<list.size()-1;i++){

@@ -163,6 +163,35 @@ public class LinkedList {
         temp.next=temp.next.next;
         System.out.println();
     }
+
+    public Node findMid(){
+        Node fast,slow;
+        fast=slow=head;
+        while(fast!=null && fast.next!= null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        return slow;
+    }
+
+    public boolean findPalin(){
+        Node mid=findMid();
+        if(size<2) return true;
+        Node curr=mid,pre=null,nxt=curr.next;
+        while(curr.next!=null){
+            curr.next=pre;
+            pre=curr;
+            curr=nxt;
+            nxt=nxt.next;
+        }
+        curr.next=pre;
+        Node left=head,right=curr;
+        while(right.next!=null){
+            if(left.data!=right.data)
+                return false;
+        }
+        return true;
+    }
     
     public static void main(String[] args) {
         LinkedList ll =new LinkedList();
@@ -180,12 +209,18 @@ public class LinkedList {
         System.out.println(ll.itrSearch(100));
         System.out.println(ll.itrSearch(121));
         System.out.println("rec -> "+ll.recSearch(100,head,0));
-        for(int i=10;i>=0;i--) ll.addNodeFirst(i);
+        //for(int i=10;i>=0;i--) ll.addNodeFirst(i);
         ll.disp();
         ll.revLL();
         ll.disp();
         System.out.println(ll.size);
         ll.removeNthFromLast(13);
         ll.disp();
+        ll.removeF();
+        ll.removeF();
+        ll.removeF();
+        ll.addNodeFirst(1);
+        ll.addNodeFirst(1);
+        System.out.println(ll.findPalin());
     }
 }

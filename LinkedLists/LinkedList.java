@@ -70,20 +70,59 @@ public class LinkedList {
             return;
         };
         int d=head.data;
-        System.out.println(d+"has been removed");
+        System.out.println(d+" has been removed");
         head=head.next;
         size--;
         return;
     }
 
     public void removeL(){
+        if(head==null){
+            System.out.println("List is empty");
+            return;
+        };
         Node temp=head;
         for(int i=0;i<size-2;i++){
             temp=temp.next;
         }
+        System.out.println(temp.next.data+" has been removed");
         temp.next=null;
         tail=temp;
+        size--;
+        return;
     }
+
+    public int itrSearch(int key){
+        if(head==null){
+            System.out.println("List is empty");
+            return -1;
+        };
+        int i=0;
+        Node temp=head;
+        while(temp!=null){
+            if(temp.data==key)
+            return i;
+            i++;
+            temp=temp.next;
+        }
+        return -1;
+    }
+
+    public int recSearch(int key,Node temp,int i){
+        if(head==null){
+            System.out.println("List is empty");
+            return -1;
+        };
+        if(temp==null){
+            return -1;
+        }else if(temp.data==key){
+            return i;
+        }else{
+            return recSearch(key, temp.next, i+1);
+    
+        }
+    }
+    
     
     public static void main(String[] args) {
         LinkedList ll =new LinkedList();
@@ -98,5 +137,8 @@ public class LinkedList {
         ll.disp();
         ll.removeL();
         ll.disp();
+        System.out.println(ll.itrSearch(100));
+        System.out.println(ll.itrSearch(121));
+        System.out.println("rec -> "+ll.recSearch(100,head,0));
     }
 }

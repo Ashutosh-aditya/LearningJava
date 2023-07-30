@@ -119,10 +119,50 @@ public class LinkedList {
             return i;
         }else{
             return recSearch(key, temp.next, i+1);
-    
         }
     }
+
+    public void revLL(){
+        Node pre,cur,nxt;
+        if(head==null){
+            System.out.println("List is empty");
+            return;
+        }
+        pre=null;
+        cur=head;
+        tail=head;
+        nxt=cur.next;
+        while(cur.next!=null){
+            // System.out.println(cur.data+"<-");
+            cur.next=pre;
+            pre=cur;
+            cur=nxt;
+            nxt=nxt.next;
+        }
+        cur.next=pre;
+        head=cur;
+        // head=pre;
+    }
     
+    public void removeNthFromLast(int index){
+        if(index>size-1){
+            System.out.println("Out of index");
+            return;
+        }
+        Node temp=head;
+        int i=1;
+        if(index==size-1) {
+            head=head.next;
+            return;
+        }
+        while(i<(size-index-1)){
+            i++;
+            System.out.print(temp.data+"-");
+            temp=temp.next;
+        }
+        temp.next=temp.next.next;
+        System.out.println();
+    }
     
     public static void main(String[] args) {
         LinkedList ll =new LinkedList();
@@ -140,5 +180,12 @@ public class LinkedList {
         System.out.println(ll.itrSearch(100));
         System.out.println(ll.itrSearch(121));
         System.out.println("rec -> "+ll.recSearch(100,head,0));
+        for(int i=10;i>=0;i--) ll.addNodeFirst(i);
+        ll.disp();
+        ll.revLL();
+        ll.disp();
+        System.out.println(ll.size);
+        ll.removeNthFromLast(13);
+        ll.disp();
     }
 }

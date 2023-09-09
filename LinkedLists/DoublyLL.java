@@ -52,7 +52,16 @@ public class DoublyLL {
     }
 
     public void revList(){
-        Node pre,nxt,cur;
+        Node pre=null,nxt,cur;
+        cur=head;
+        while(cur!=null){
+            nxt=cur.next;
+            cur.next=pre;
+            cur.prev=nxt;
+            pre=cur;
+            cur=nxt;
+        }
+        head=pre;
     }
 
     public static void main(String[] args) {
@@ -62,6 +71,9 @@ public class DoublyLL {
         dl.print();
         System.out.println("\n"+size);
         dl.removeFirst();
+        dl.print();
+        dl.revList();
+        System.out.println("<->");
         dl.print();
     }
     

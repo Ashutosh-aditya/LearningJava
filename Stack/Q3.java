@@ -33,6 +33,7 @@ public class Q3 {
         for(int i=1;i<11;i++){
             s.push(i);
         }
+        // disp(s);
         revStack(s);
         disp(s);
     }

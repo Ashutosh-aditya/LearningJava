@@ -13,6 +13,8 @@ public class Q6_Valid_Parentheses {
                 else if((c=='}' && s.peek()=='{') || (c==']' && s.peek()=='[') || (c==')' && s.peek()=='(')){
                     s.pop();
                 }
+                else 
+                return false;
             }
         }
         if(s.isEmpty())

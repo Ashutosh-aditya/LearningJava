@@ -9,6 +9,7 @@ public class Q7_Duplicate_Parantheses {
                 while(s.peek()!='('){
                     s.pop();
                     count++;
+        
                 }
                 if(1>count)
                 return true;

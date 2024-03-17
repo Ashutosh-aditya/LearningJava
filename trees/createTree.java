@@ -77,6 +77,45 @@ public class createTree {
                 }
             }
         }
+
+        static int height(Node root){
+            if(root==null)
+            return 0;
+            else 
+            return Math.max(height(root.left),height(root.right))+1;
+        }
+
+        static int diameter(Node root){
+            if(root==null)
+            return 0;
+            else{
+                int lh,rh,dm;
+                lh=rh=dm=0;
+                lh=height(root.left);
+                rh=height(root.right);
+                dm=lh+rh+1;
+                return dm;
+            }
+        }
+
+        static int countNodes(Node root){
+            int s1=0,s2=0;
+            if(root==null) return 0;
+            if(root.left!=null)s1=countNodes(root.left)+1;
+            if(root.right!=null)s2=countNodes(root.right)+1;
+            return s1+s2+1;
+        }
+
+        static int sumofnodes(Node root){
+            if(root==null)
+                return 0;
+            else{
+                int lsum=0,rsum=0;
+                lsum=sumofnodes(root.left);
+                rsum=sumofnodes(root.right);
+                return lsum+rsum+root.data;
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -91,5 +130,10 @@ public class createTree {
         createTree.binaryTree.postorder(n1);
         System.out.println();
         createTree.binaryTree.levelorder(n1);
+        System.out.println("Height is "+createTree.binaryTree.height(n1));
+        System.out.println("Number of nodes is "+createTree.binaryTree.countNodes(n1));
+        System.out.println("Sum of nodes is "+createTree.binaryTree.sumofnodes(n1));
+        System.out.println("Diameter is "+createTree.binaryTree.diameter(n1));
+        
     }
 }

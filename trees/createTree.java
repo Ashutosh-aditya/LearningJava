@@ -15,6 +15,15 @@ public class createTree {
         }
     }
 
+    static class info{
+        int height;
+        int diameter;
+        info(int h,int d){
+            this.height=h;
+            this.diameter=d;
+        }
+    }
+
     static class binaryTree{
         static int idx=-1;
         static Node buildTree(int arr[]){
@@ -85,7 +94,7 @@ public class createTree {
             return Math.max(height(root.left),height(root.right))+1;
         }
 
-        static int diameter(Node root){
+        static int diameter2(Node root){ // O(n2) 
             if(root==null)
             return 0;
             else{
@@ -96,6 +105,20 @@ public class createTree {
                 dm=lh+rh+1;
                 return dm;
             }
+        }
+
+        static info diameter(Node root){
+
+            if(root==null)
+                return new info(0, 0);
+
+            info lInfo=diameter(root.left);
+            info rInfo=diameter(root.right);
+
+            int dia=Math.max((lInfo.height+rInfo.height+1),Math.max(lInfo.diameter, rInfo.diameter));
+            int ht=Math.max(lInfo.height,rInfo.height)+1;
+
+            return new info(ht, dia);
         }
 
         static int countNodes(Node root){
@@ -116,6 +139,51 @@ public class createTree {
                 return lsum+rsum+root.data;
             }
         }
+
+        static boolean isIdentical(Node n1,Node subroot){
+            if(n1==null && subroot==null){
+                return true;
+            }
+            else if(n1==null || subroot==null || n1.data !=subroot.data){
+                return false;
+            }
+
+            if(!isIdentical(n1.left, subroot.left)){
+                return false;
+            }
+            else if(!isIdentical(n1.right, subroot.right)){
+                return false;
+            }
+            else return true;
+        }
+
+        public static boolean isSubtree(Node root,Node subroot){
+            if(root==null)
+                return false;
+            if(root.data==subroot.data){
+                return isIdentical(root,subroot);
+            }
+            return isSubtree(root.left, subroot) || isSubtree(root.right, subroot);
+        }
+
+        static boolean CompareTree(Node r1,Node r2){
+            boolean rt=false,lt=false;
+            if(r1==null && r2==null) 
+            return true;
+            else if(r1==null || r2==null){
+                return false;
+            }
+            else{
+                if(r1.data==r2.data){
+                    lt=CompareTree(r1.left, r2.left);
+                    rt=CompareTree(r1.right, r2.right);
+                    if(lt && rt){
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -133,7 +201,25 @@ public class createTree {
         System.out.println("Height is "+createTree.binaryTree.height(n1));
         System.out.println("Number of nodes is "+createTree.binaryTree.countNodes(n1));
         System.out.println("Sum of nodes is "+createTree.binaryTree.sumofnodes(n1));
-        System.out.println("Diameter is "+createTree.binaryTree.diameter(n1));
+        System.out.println("Diameter is "+createTree.binaryTree.diameter2(n1));//wrong code 
+        info obj1=createTree.binaryTree.diameter(n1);//O(n)
+        System.out.println("using efficient approach Diameter is "+obj1.diameter); 
+        System.out.println("using efficient approach Height is "+obj1.height); 
+        System.out.println("Compare 2 trees result "+createTree.binaryTree.CompareTree(n1, null));
+
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.right.left = new Node(6);
+        root.right.right = new Node(7);
+
+        Node subRoot=new Node(2);
+        subRoot.left=new Node(4);
+        subRoot.right=new Node(5);
+        System.out.println("Compare 2 trees result "+createTree.binaryTree.CompareTree(root, subRoot));
+        System.out.println("Is subtrees : "+createTree.binaryTree.isSubtree(root, subRoot));
         
     }
 }

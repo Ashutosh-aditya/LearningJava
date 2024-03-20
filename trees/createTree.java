@@ -1,5 +1,6 @@
 
 // the below code fragment can be found in:
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -184,6 +185,55 @@ public class createTree {
                 return false;
             }
         }
+
+        static class info2{
+            Node n1;
+            int hd;
+            info2(Node node,int dist){
+                this.n1=node;
+                this.hd=dist;
+            }
+        }
+
+        static void topView(Node root){
+            Queue<info2> q = new LinkedList<>();
+            q.add(new info2(root,0));
+            HashMap<Integer,Node> map=new HashMap<>();
+            int min=0,max=0;
+            q.add(new info2(root,0));
+            q.add(null);
+            while(!q.isEmpty()){
+                info2 curr=q.remove();
+                if(curr==null){
+                    if(q.isEmpty()){
+                        break;
+                    }
+                    else{
+                        q.add(null);
+                    }
+                }
+                else{
+                    if(!map.containsKey(curr.hd)){//first occurance
+                        map.put(curr.hd, curr.n1);
+                    }
+                    if(curr.n1.left!=null){
+                        q.add(new info2(curr.n1.left, curr.hd-1));
+                        min=Math.min(min,curr.hd-1);
+                        
+                    }
+                    if(curr.n1.right!=null){
+                        q.add(new info2(curr.n1.right, curr.hd+1));
+                        max=Math.max(max,curr.hd+1);
+                        
+                    }
+                }
+            }
+            for(int i=min;i<=max;i++){
+                System.out.print(map.get(i).data+" ");
+            }
+            System.out.println();
+        }
+
     }
 
     public static void main(String[] args) {
@@ -207,19 +257,28 @@ public class createTree {
         System.out.println("using efficient approach Height is "+obj1.height); 
         System.out.println("Compare 2 trees result "+createTree.binaryTree.CompareTree(n1, null));
 
-        Node root = new Node(1);
-        root.left = new Node(2);
+        Node root = new Node(1);                        
+        root.left = new Node(2);                       
         root.right = new Node(3);
         root.left.left = new Node(4);
         root.left.right = new Node(5);
         root.right.left = new Node(6);
         root.right.right = new Node(7);
 
+        /*
+                  1
+                /   \
+               2     3
+              / \   / \
+             4  5  6   7
+         */
+
+
         Node subRoot=new Node(2);
         subRoot.left=new Node(4);
         subRoot.right=new Node(5);
         System.out.println("Compare 2 trees result "+createTree.binaryTree.CompareTree(root, subRoot));
         System.out.println("Is subtrees : "+createTree.binaryTree.isSubtree(root, subRoot));
-        
+        createTree.binaryTree.topView(root);
     }
 }

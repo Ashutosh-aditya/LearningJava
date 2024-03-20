@@ -1,4 +1,4 @@
-import java.util.*;
+
 public class PartThree {
     static class Node{
         int data;
@@ -10,6 +10,20 @@ public class PartThree {
             this.right=null;   
         }
     }
+
+    static void print_K_level(Node root,int level,int k){
+        if(root==null || level>k){
+            return;
+        }
+        if(level==k){
+            System.out.print(root.data+" ");
+            return;
+        }
+        print_K_level(root.left, level+1, k);
+        print_K_level(root.right, level+1, k);
+        
+    }
+
     public static void main(String[] args) {
         Node root = new Node(1);                        
         root.left = new Node(2);                       
@@ -26,5 +40,6 @@ public class PartThree {
               / \   / \
              4  5  6   7
          */
+        print_K_level(root, 1, 3);
     }
 }

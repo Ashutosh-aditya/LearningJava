@@ -29,7 +29,7 @@ public class LowestCommonAncestor {
         return false;
     }
 
-    public static Node lca(Node root,int n1,int n2){
+    public static Node lca(Node root,int n1,int n2){ //TC:O(n) && SC:O(n)
         ArrayList<Node> path1=new ArrayList<>();
         ArrayList<Node> path2=new ArrayList<>();
 

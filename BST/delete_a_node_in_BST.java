@@ -116,6 +116,27 @@ public class delete_a_node_in_BST {
     //     return root; // Return updated root node
     // }
 
+    public static void PrintInRange(Node root,int min ,int max){//not understood
+        if(root==null){
+            return;
+        }
+        if( root.data>=min && root.data<=max ){
+            PrintInRange(root.left,min,max);
+            System.out.print(root.data+" ");
+            PrintInRange(root.right,min,max);
+            }
+        else if(root.data>max){
+            PrintInRange(root.left,min,max);
+        }
+        if(root.data<min){
+            PrintInRange(root.right,min,max);
+        }
+    }
+
+    public static void printRoot2Leaf(Node root,ArrayList<Integer> list){
+        
+    }
+
     public static void main(String[] args) {
         int arr[]={8, 5, 3, 1, 4, 6, 10, 11, 14},del=6;
         Node root = build_BST(null, arr);
@@ -124,5 +145,9 @@ public class delete_a_node_in_BST {
         System.out.println();
         System.out.println("After deleting node with data :"+del);
         inorder(root);
+        System.out.println();
+        int min=1,max=5;
+        System.out.println("Print in range "+min+" to "+max);
+        PrintInRange(root,min,max);
     }
 }

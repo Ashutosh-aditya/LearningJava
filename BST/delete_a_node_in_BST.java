@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class delete_a_node_in_BST {
     static class Node{
         int data;
@@ -133,15 +135,45 @@ public class delete_a_node_in_BST {
         }
     }
 
+    public static void printpath(ArrayList<Integer> list){
+        for(int i=0;i<list.size();i++){
+            System.out.print(list.get(i)+" ");
+        }
+        System.out.println();
+    }
     public static void printRoot2Leaf(Node root,ArrayList<Integer> list){
-        
+        if(root==null){
+            return;
+        }
+        list.add(root.data);
+        if(root.left==null && root.right==null){
+            printpath(list);
+        }
+        printRoot2Leaf(root.left, list);
+        printRoot2Leaf(root.right, list);
+        list.remove(list.size()-1);
     }
 
+    public static boolean validateBST(Node root,Node min,Node max){
+        if(root==null){
+            return true;
+        }
+        if(min!=null && root.data<=min.data){
+            return false;
+        }
+        if(max!=null && root.data>=max.data){
+            return false;
+        }
+        return validateBST(root.left,min,root) && validateBST(root.right,root,max);
+    }
     public static void main(String[] args) {
         int arr[]={8, 5, 3, 1, 4, 6, 10, 11, 14},del=6;
-        Node root = build_BST(null, arr);
+        int arr1[]={8, 5, 3, 6, 10, 11, 14};
+        int arr2[]={1,1,1};
+        Node root1=build_BST(null, arr);
+        Node root = build_BST(null, arr1);
         inorder(root);
-        root=deleteNode(root, del);
+        // root=deleteNode(root, del);
         System.out.println();
         System.out.println("After deleting node with data :"+del);
         inorder(root);
@@ -149,5 +181,23 @@ public class delete_a_node_in_BST {
         int min=1,max=5;
         System.out.println("Print in range "+min+" to "+max);
         PrintInRange(root,min,max);
+        System.out.println();
+        ArrayList<Integer> al = new ArrayList<>();
+        System.out.println("Root to leaf");
+        printRoot2Leaf(root, al);
+        printRoot2Leaf(root1, al);
+        Node root2=build_BST(null, arr2);
+        if(validateBST(root, null,null)){
+            System.out.println("BST is valid");
+        }
+        else{
+            System.out.println("BST is not valid");
+        }
+        if(validateBST(root2, null,null)){
+            System.out.println("BST is valid");
+        }
+        else{
+            System.out.println("BST is not valid");
+        }
     }
 }

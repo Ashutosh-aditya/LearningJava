@@ -11,7 +11,6 @@ public class tries_basics {
 
         static Node root=new Node();
         
-
         public static void insert(String word,int idx,Node n){
             if(idx==word.length()){
                 n.children[idx].endOfWord=true;

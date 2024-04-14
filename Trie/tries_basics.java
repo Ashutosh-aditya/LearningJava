@@ -63,9 +63,21 @@ public class tries_basics {
             return false;
         }
 
+        public static boolean searchPrefix(String str) { //O(L)  length of word
+            Node curr=root;
+            for(int level=0;level<str.length();level++){
+                int idx=str.charAt(level)-'a';
+                if(curr.children[idx]==null){
+                    return false;
+                }
+                curr=curr.children[idx];
+            }
+            return true;
+        }
+
         public static void main(String[] args) {
             // String words[] = {"the","a","there","their","any","thee"};
-            String words1[]={ "i", "like", "sam", "samsung", "mobile", "ice"};
+            String words1[]={ "i", "like", "sam", "samsung", "mobile", "ice","there"};
             for(String s : words1) {
                 insert(s);
             }
@@ -75,6 +87,13 @@ public class tries_basics {
             else{
                 System.out.println("Not Found");
             }
-            System.out.println(wordBreak("ilikesamsung"));
+            System.out.println("wordbreak-"+wordBreak("ilikesamsung"));
+
+            if(searchPrefix("ther")){
+                System.out.println("Prefix Found");
+            }
+            else{
+                System.out.println("Prefix Not Found");
+            }
         }
 }
